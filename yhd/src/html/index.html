@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一号店首页</title>
+    <link rel="stylesheet" href="../style/index.css">
+</head>
+
+<body>
+    <!-- 头部 -->
+    <header>
+        <div class="top_bar">
+            <div class="top_bar_main">
+                <a href="javascript:;">
+                    <i class="icon iconfont"></i>
+                    <span class="text">送货地址&nbsp;:</span>
+                    <em>上海</em>
+                </a>
+                <!-- 公告 -->
+                <div class="notice">
+                    <i class="icon iconfont"></i>
+                    <ul class="notice_slider">
+                        <li class="slider">防范金融诈骗提示</li>
+                        <li class="slider">1号店配送费调整公告</li>
+                        <li class="slider">1金融下线公告</li>
+                    </ul>
+
+                </div>
+                <!-- 登录注册入口 -->
+                <div class="login_entry">
+                    <ul>
+                        <li class="login">
+                            <div class="unlogin">
+                                <span class="hd_hi">下午好,请</span>
+                                <a href="https://passport.yhd.com/passport/login_input.do"
+                                    class="login_link">登录&nbsp;</a>
+                                <a href="https://passport.yhd.com/passport/register_input.do"
+                                    class="regist_link">&nbsp;注册</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hd_menu">
+                                <a href="//vip.yhd.com">
+                                    <i class="icon iconfont"></i>
+                                    <span class="text">会员俱乐部</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hd_menu">
+                                <a href="//home.yhd.com/order/toOrderList.do" target="_blank" rel="nofollow">
+                                    <i class="icon iconfont"></i>
+                                    <span class="text">我的订单</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="wrap header_bp">
+            <div class="logo">
+                <a href="//www.yhd.com" class="hd_logo">
+                    <img src="//img.yihaodianimg.com/front-homepage/global/images/logo/logo_new@2x.png" alt="">
+                </a>
+                <div class="inner">
+                    <img src="//img30.360buyimg.com/img/jfs/t28237/269/997297430/10022/b24f8009/5c05314cNf894bdef.jpg">
+                </div>
+            </div>
+            <!-- 搜索框 -->
+            <div class="search_area">
+                <!-- clearfix 万能清除法 -->
+                <div class="clearfix">
+                    <div class="search">
+
+                        <div class="search_wrap clearfix">
+                            <input class="ipt" name="keyword" id="keyword" type="text" value="" placeholder="电脑主机台式">
+                            <span type="button" class="search_btn" onclick="javascript:searchMeForClick();">
+                                <i class="icon iconfont"></i>
+                            </span>
+
+                        </div>
+                        <!--搜索提示 begin-->
+                        <div id="searchSuggest" class="hd_search_tips_result " style="display:none"
+                            onmouseover="$('#searchSuggest').show()">
+                        </div>
+                        <!--搜索提示 end-->
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- 导航 -->
+            <div class="header_nav">
+                <div id="categoryBox">
+                    <div class="category_title">
+                        <span class="icon icon-menu iconfont"></span>
+                        <span>全部类目</span>
+                        <span class="icon iconfont iconDown"
+                            style="font-size: 12px; margin-left: 3px; position: relative; top: -1px; display: inline;">
+                        </span>
+                    </div>
+                </div>
+                <ul class="nav_list">
+                    <li>
+                        <a href="//coin.yhd.com/" title="金币签到" target="_blank">金币签到</a>
+                    </li>
+                    <li>
+                        <a href="//channel.yhd.com/recharge.html" title="充值" target="_blank">充值</a>
+                    </li>
+                    <li>
+                        <a href="https://coupon.yhd.com/couponCenter/home" title="领券中心" target="_blank">领券中心</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- 轮播图 -->
+    <div id="banner">
+        <div class="lunbo_img">
+            <ul>
+                <li class="lunbo_li"
+                    style="background-image: url(//img14.360buyimg.com/img/jfs/t1/96087/38/1636/94558/5dc3af0dE1089b2cc/9bd9aaf75c57c953.jpg)">
+                </li>
+            </ul>
+        </div>
+        <div class="lb_tab"></div>
+    </div>
+    <!-- 新人会场 -->
+    <div id="new_channel">
+        <img src="//img14.360buyimg.com/img/jfs/t1/32471/30/11988/36501/5cb6a33fEbce59d62/1a19815975696690.png" alt="">
+    </div>
+    <!-- 超级单品 -->
+    <div class="single_con">
+        <div class="super_single">
+            <ul>
+                <li class="single_one">
+                    <a href="https://qianggou.yhd.com" target="_blank">
+                        <img class="single_logo"
+                            src="//img.yihaodianimg.com/front-homepage/index/images/single_img.png">
+                        <div class="single_text" clstag="pageclick|keycount|shouye_20181018|SuperSingleTitle">
+                            <span class="sing_text_font">限时 限量 品质 超值</span>
+                            <span class="single_text_line"></span>
+                        </div>
+                        <div class="single_djs">
+                            <div class="djs_title">
+                                <i class="icon iconfont" style="font-size:20px;position:relative;top:2px"></i>
+                                <div class="s_text">距结束仅剩</div>
+                            </div>
+                            <div class="djs_time">
+                                <span></span>
+                                <i class=""></i>
+                                <span></span>
+                                <i></i>
+                                <span></span>
+                            </div>
+                            <div class="count_time" data-enddate="2019-11-13-20-00-00"
+                                data-startdate="2019-11-13-18-00-00" data-load="0">
+                                <span class="clock_time time_hour">00</span><i>:</i><span
+                                    class="clock_time time_minit">00</span><i>:</i><span
+                                    class="clock_time time_second">01</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li grouponid="307680326" data-pricedone="1">
+                    <a href="//qianggou.yhd.com/1-307680326" target="_blank"
+                        title="柒牌针扣皮带男士真皮旋转两用牛仔裤带潮男式头层纯牛皮新款腰带117P90200 黑色 125cm" class="single_li">
+                        <div class="single_top">
+                            <div class="s_bz"></div>
+                            <img class="top_img"
+                                src="https://img10.360buyimg.com/mobilecms/s450x450_jfs/t1/40412/7/13506/114636/5d47e901E11050d20/73c6eea655087480.jpg"
+                                alt="">
+                        </div>
+                        <div class="single_bottom">
+                            <div class="s_title">柒牌针扣皮带男士真皮旋转两用牛仔裤带潮男式头层纯牛皮新款腰带117P90200 黑色 125cm</div>
+                            <div class="s_bar">
+                                <div class="s_progress" style="width:97% "></div>
+                            </div>
+                            <div class="s_con">
+                                <div class="s_num">
+                                    <span class="s_num_unit">￥</span>
+                                    <span class="s_num_act">169</span>
+                                    <span class="s_num_underline">
+                                        <span class="s_num_unit">￥</span>
+                                        <span class="s_num_line">339</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="erweima"></div>
+    </div>
+    <!-- 品牌分类模块 -->
+    <div id="brand_mod">
+        <!-- 模块1-进口品质 -->
+        <div class="export conn_w">
+            <div class="qua_show">
+                <a href="javascript:;">
+                    <span class="comm export_text">品质进口</span>
+                    <span class="comm live_text">/ 给你完美生活</span>
+                </a>
+                <div class="qua_display">
+                    <img class="img_left"
+                        src="//img14.360buyimg.com/img/jfs/t1/1076/13/11472/56073/5bcee65aEd7a8a7d5/0495991261171cf8.jpg"
+                        data-imgattr="wideimg">
+                    <div class="btn_class">
+                        <a href="javascript:;" class="export_btn">进口饼干</a>
+                        <a href="javascript:;" class="export_btn">进口牛奶</a>
+                        <a href="javascript:;" class="export_btn">进口水</a>
+                        <a href="javascript:;" class="export_btn">进口糖巧</a>
+                        <a href="javascript:;" class="export_btn">葡萄酒</a>
+                        <a href="javascript:;" class="export_btn">进口油</a>
+
+                    </div>
+                    <div class="export_class">
+                        <a href="javascript:;" class="import_snacks">
+                            <p class="import_tit">进口休闲零食</p>
+                            <p class="voucher_tit">爆款直降</p>
+                            <div class="buy_btn">点击进入</div>
+                            <img src="//img13.360buyimg.com/img/jfs/t1/2296/6/11761/16939/5bd11901E7e8d7a9e/1a09d70d7e71a716.png"
+                                data-imgattr="wideimg">
+                        </a>
+                        <a href="javascript:;" class="bursting">
+                            <p class="burting_font burting_font_color">进口饼干</p>
+                            <p class="zcmj">超值满减</p>
+                            <img src="//img30.360buyimg.com/img/jfs/t1/9437/35/2028/15954/5bd11a70Ec50934d5/ba447ee7683edaa7.jpg"
+                                data-imgattr="wideimg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="rank">
+                <img class="qua_paihang" src="//img.yihaodianimg.com/front-homepage/index/images/paihangbang.png"
+                    data-imgattr="wideimg">
+                <p class="que_food">进口食品热销榜 </p>
+                <p>爆款热卖 实时更新</p>
+                <div class="rank_wrap">
+                    <div class="rank_inner">
+                        <ul>
+                            <li class="rank_top">
+                                <span>TOP1</span>
+                                <img src="//img11.360buyimg.com/test/s200x200_jfs/t17941/226/2669737138/420972/35402273/5b062750N2e8adbff.jpg"
+                                    alt="">
+                            </li>
+                            <li class="rank_top">
+                                <span>TOP1</span>
+                                <img src="//img11.360buyimg.com/test/s200x200_jfs/t17941/226/2669737138/420972/35402273/5b062750N2e8adbff.jpg"
+                                    alt="">
+                            </li>
+                            <li class="rank_top">
+                                <span>TOP1</span>
+                                <img src="//img11.360buyimg.com/test/s200x200_jfs/t17941/226/2669737138/420972/35402273/5b062750N2e8adbff.jpg"
+                                    alt="">
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <span class="arrow arr_l">
+                    <</span> <span class="arrow arr_r">>
+                </span>
+            </div>
+
+        </div>
+        <!-- 模块2-臻选新鲜 -->
+        <!-- <div class="flesh conn_w"></div> -->
+        <!-- 模块3-精致女人 -->
+        <!-- <div class="women conn_w"></div> -->
+        <!-- 模块4-科技生活 -->
+        <!-- <div class="technology conn_w"></div> -->
+    </div>
+
+    <!-- 商品列表 -->
+    <div id="goods">
+        <div class="known">
+            <img src="https://www.yhd.com/statics/index/images/dongni.png" alt="">
+            <p class="known_text">可能比你自己更懂你</p>
+        </div>
+
+        <ul class="good_wrap">
+            <li class="good">
+                <div class="pic">
+                    <img class="good_img"
+                        src="https://img13.360buyimg.com/jdcms/jfs/t1/95008/25/2257/185184/5dcbb97fE8dce4f27/7a55b2020c16332b.jpg"
+                        alt="">
+                </div>
+                <p class="good_text">浪莎保暖内衣秋衣秋裤女套装无缝美体塑身薄款棉毛打底衫内衣女 纤体塑身 黑色 均码【建议85-135斤】</p>
+                <p class="price">￥<span>99.0</span></p>
+                <div class="pro_tag clearfix">
+                    <div class="goods_icon ticket_icon">领券</div>
+                    <div class="goods_icon off_icon">满折</div>
+                </div>
+            </li>
+            <li class="good">
+                <div class="pic">
+                    <img class="good_img"
+                        src="https://img13.360buyimg.com/jdcms/jfs/t1/95008/25/2257/185184/5dcbb97fE8dce4f27/7a55b2020c16332b.jpg"
+                        alt="">
+                </div>
+                <p class="good_text">浪莎保暖内衣秋衣秋裤女套装无缝美体塑身薄款棉毛打底衫内衣女 纤体塑身 黑色 均码【建议85-135斤】</p>
+                <p class="price">￥<span>99.0</span></p>
+                <div class="pro_tag clearfix">
+                    <div class="goods_icon ticket_icon">领券</div>
+                    <div class="goods_icon off_icon">满折</div>
+                </div>
+            </li>
+            <li class="good">
+                <div class="pic">
+                    <img class="good_img"
+                        src="https://img13.360buyimg.com/jdcms/jfs/t1/95008/25/2257/185184/5dcbb97fE8dce4f27/7a55b2020c16332b.jpg"
+                        alt="">
+                </div>
+                <p class="good_text">浪莎保暖内衣秋衣秋裤女套装无缝美体塑身薄款棉毛打底衫内衣女 纤体塑身 黑色 均码【建议85-135斤】</p>
+                <p class="price">￥<span>99.0</span></p>
+                <div class="pro_tag clearfix">
+                    <div class="goods_icon ticket_icon">领券</div>
+                    <div class="goods_icon off_icon">满折</div>
+                </div>
+            </li>
+            <li class="good">
+                <div class="pic">
+                    <img class="good_img"
+                        src="https://img13.360buyimg.com/jdcms/jfs/t1/95008/25/2257/185184/5dcbb97fE8dce4f27/7a55b2020c16332b.jpg"
+                        alt="">
+                </div>
+                <p class="good_text">浪莎保暖内衣秋衣秋裤女套装无缝美体塑身薄款棉毛打底衫内衣女 纤体塑身 黑色 均码【建议85-135斤】</p>
+                <p class="price">￥<span>99.0</span></p>
+                <div class="pro_tag clearfix">
+                    <div class="goods_icon ticket_icon">领券</div>
+                    <div class="goods_icon off_icon">满折</div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <!-- 页脚 -->
+    <div id="ft_wrap">
+        <ul class="wrap ft_logo">
+            <li target="_blank">
+                <img alt="" src="//d8.yihaodianimg.com/N05/M0B/39/F3/CgQI0lWskgmADBnsAAAPZvcSh3E68900.jpg">
+                <b>正品保障</b>
+                <span>正品行货 放心选购</span>
+            </li>
+            <li target="_blank">
+                <img alt="" src="//d8.yihaodianimg.com/N05/M0B/39/F3/CgQI0lWskgmADBnsAAAPZvcSh3E68900.jpg">
+                <b>正品保障</b>
+                <span>正品行货 放心选购</span>
+            </li>
+            <li target="_blank">
+                <img alt="" src="//d8.yihaodianimg.com/N05/M0B/39/F3/CgQI0lWskgmADBnsAAAPZvcSh3E68900.jpg">
+                <b>正品保障</b>
+                <span>正品行货 放心选购</span>
+            </li>
+            <li target="_blank">
+                <img alt="" src="//d8.yihaodianimg.com/N05/M0B/39/F3/CgQI0lWskgmADBnsAAAPZvcSh3E68900.jpg">
+                <b>正品保障</b>
+                <span>正品行货 放心选购</span>
+            </li>
+        </ul>
+        <div class="wrap serve">
+            <div class="serve_l">
+                <dl>
+                    <dt>新手入门</dt>
+                    <dd>购物流程</dd>
+                    <dd>会员制度</dd>
+                    <dd>订单查询</dd>
+                    <dd>服务协议及隐私说明</dd>
+                    <dd>网站地图</dd>
+                </dl>
+                <dl>
+                    <dt>支付方式</dt>
+                    <dd>货到付款</dd>
+                    <dd>网上支付</dd>
+                    <dd>礼品卡支付</dd>
+                    <dd>其它支付</dd>
+                </dl>
+                <dl>
+                    <dt>配送服务</dt>
+                    <dd>配送进度查询</dd>
+                    <dd>商品验货与签收</dd>
+                </dl>
+                <dl>
+                    <dt>相关规则</dt>
+                    <dd>平台规则</dd>
+                    <dd>退换货政策</dd>
+                    <dd>发票制度</dd>
+                    <dd>帮助中心</dd>
+                </dl>
+            </div>
+            <div class="serve_ewm">
+                <div class="ewm">
+                    <p>APP更优惠</p>
+                    <img src="//img.yihaodianimg.com/front-homepage/index/images/qryhd.png?1=1" alt="APP更优惠二维码">
+                </div>
+                <div class="ewm">
+                    <p>加微信查订单</p>
+                    <img src="//img30.360buyimg.com/img/jfs/t15403/130/239695202/5772/891e9fb1/5a2798bbN479da3df.jpg"
+                        alt="加微信查订单二维码">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="ft_footer_link">
+                <a target="_blank">沪ICP备16050468号</a>|
+                <a href="//cms.yhd.com/cms/view.do?topicId=16" target="_blank">经营证照</a>|
+                <a href="//d9.yihaodianimg.com/N10/M05/00/A9/ChEi2lkQGRaAfaeeAAIhVwT2TYo18400.jpg"
+                    target="_blank">互联网药品信息服务资格证(沪)-经营性-2017-0006</a>|
+                <a target="_blank">违法和不良信息举报电话：0527-88100253</a>|
+                <a href="//d9.yihaodianimg.com/N11/M04/76/1C/ChEwoVnfFfeAfzKUAAg9urXNqaA12000.jpg"
+                    target="_blank">沪B2-20170039</a>|
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010502002939"
+                    target="_blank">沪公网安备 31010502002939号</a>|
+                <a href="//seo.yhd.com/sitelink/sitelink.html" target="_blank">友情链接</a>|
+                <a href="//cms.yhd.com/cms/view.do?topicId=105" target="_blank">出版物经营许可证</a>|
+                <a href="//img30.360buyimg.com/img/jfs/t1/6492/18/11106/1876411/5c239337Ef050b204/c78bc70077a34bf2.jpg"
+                    target="_blank">增值电信业务经营许可证</a>
+            </p>
+            <p>Copyright© 1号店网上超市 2007-2019，All Rights Reserved</p>
+            <small id="footerbanner2LazyLoad" class="partner">
+                <img alt="" src="//d9.yihaodianimg.com/N01/M0A/95/FD/CgQCr1PQy1CAF7vaAABDexsiEYM24800.jpg">
+                <img alt=""
+                    src="//img30.360buyimg.com/img/jfs/t1/67062/24/2140/2722/5d074768Ef1d18308/f582260777c44b30.png">
+                <img alt="" src="//d6.yihaodianimg.com/N10/M09/0E/1F/ChEi2lh171KAJrGlAAALl_uZt0E75600.jpg">
+                <img alt="" src="//d9.yihaodianimg.com/N08/M01/C7/7E/ChEi1FYXHcOAVk_WAAAL2r2-yfo10200.jpg">
+                <img alt="" src="//d9.yihaodianimg.com/N01/M03/A0/40/CgQCrlPYTqCASlHXAAAd82JE0eA31000.png">
+                <img alt=""
+                    src="//img30.360buyimg.com/img/jfs/t16534/130/1965976230/19256/c267b386/5a706bb1Ne3eec0dd.png">
+                <img alt=""
+                    src="//img30.360buyimg.com/img/jfs/t1/61675/5/2178/16486/5d0882e1E611dd02d/7b46518a9d74a1d6.jpg">
+            </small>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body, button, input, select, textarea {
+    font: 12px Arial,Helvetica,sans-serif;
+    color: #333;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+@font-face {
+    font-family: 'iconfont';
+    src: url('../style/iconfont/iconfont_login.woff') format("woff");
+}
+
+/* 定义使用iconfont的样式 */
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+}
+.rgt_header{
+    padding: 16px;
+    font-size: 12px;
+    background: #FFF;
+    border: 1px solid #e1e1e1;
+ 
+    .wrap_header{
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .header_r{
+        float: right;
+        line-height: 18px;
+        font-family: "SimSun";
+        color: #999;
+        // width: 88px;
+      
+        
+
+        .help{
+            float: right;
+            padding: 0 6px;
+            margin-left: 25px;
+            position: relative;
+            color: #333;
+           
+            .help_ico{
+                height: 18px;
+                color: #000;
+                display: inline-block;
+                text-indent: 22px;
+                margin-right: 6px;
+                background: url(https://passport.yhd.com/front-passport/passport/images/regist.png?e829f75) no-repeat -344px 0;
+                vertical-align: middle;
+               
+            }
+            p{
+                font-size: 12px;
+                float: right;
+                height: 12px;
+                line-height: 20px;
+            }
+            .menu {
+                position: absolute;
+               left: 0;
+               background-color: #fff;
+                display: none;
+
+              
+               
+                li{
+                    line-height: 24px;
+                    color: #333;
+                    height: 24px;
+                    text-indent: 22px;
+                    list-style: none;
+                    border-bottom: 1px solid #eee;
+
+                    &:first-child{
+                        border-top: 1px solid #eee;
+                    }
+                }
+            }
+            .help_ico:hover .menu{
+                display: block;
+                border: 1px solid #eee;
+               }
+        }
+
+        .login_entry{
+            float: right;
+        }
+    }
+}
+
+// 登录区
+.login_wrap{
+    padding: 26px 0 0;
+    background: url(https://passport.yhd.com/front-passport/passport/images/regist_topshadow.png?e829f75) repeat-x;
+}
+.wrap {
+    margin: 0 auto;
+    width: 980px; 
+}
+.clearfix:after {
+    display: block;
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+}
+.login_img{
+    float: left;
+    margin-top: 45px;
+    width: 510px;
+    height: 315px;
+    img{
+        width: 510px;
+        height: 315px;
+    }
+}
+
+.login_inner{
+    position: relative;
+    float: right;
+    width: 330px;
+    padding: 45px 35px 15px 35px;
+    background-color: #fff;
+    h3{
+        float: left;
+        font-size: 14px;
+        color: #666;
+        font-weight: bold;
+        line-height: 30px;
+    }
+    .regist_new{
+        float: right;
+        line-height: 30px;
+        color: #06c;
+    }
+
+    .login_form{
+        position: relative;
+        
+        
+        .form_item{
+            position: relative;
+            z-index: 100;
+            height: 24px;
+            margin-bottom: 10px;
+            padding: 14px 18px;
+            border: 1px solid #dedede;
+            background: #FFF;
+            line-height: 24px;
+        }
+        .cur{
+            z-index: 101;
+            border: 1px solid #aaa;
+        }
+        label{
+            display: inline-block;
+            width: 42px;
+            vertical-align: middle;
+            color: #666;
+        }
+        .user_ico{
+            background: url(https://passport.yhd.com/front-passport/passport/images/login_new.png?e829f75) no-repeat -50px 4px;
+        }
+        .paswd_ico{
+            background: url(https://passport.yhd.com/front-passport/passport/images/login_new.png?e829f75) no-repeat -150px 4px;
+        }
+        input{
+            width: 230px;
+            height: 24px;
+            padding-left: 3px;
+            border: 0 none;
+            line-height: 24px;
+            vertical-align: middle;
+            font-family: "Microsoft YaHei";
+            font-size: 14px;
+        }
+        .auto_login{
+            position: relative;
+            margin: 10px 0;
+            line-height: 24px;
+            min-height: 24px;
+            color: #999;
+
+        }
+        .auto_sel{
+            background: url(https://passport.yhd.com/front-passport/passport/images/login.png?e829f75) no-repeat -347px -265px;
+            text-indent: 18px;
+            float: left;
+
+        }
+        .forget_pass{
+            position: absolute;
+            right: 0;
+        }
+
+        .login_btn{
+            width: 330px;
+            height: 52px;
+            border: 0 none;
+            border-radius: 3px;
+            background: #ff3c3c;
+            font-size: 16px;
+            color: #FFF;
+            cursor: pointer;
+            text-shadow: 1px 1px 1px #ff7373;
+            font-family: "Microsoft YaHei";
+            line-height: 52px;
+        }
+    }
+
+    .more_land{
+        p{
+            padding: 15px 0;
+            color: #666;
+        }
+        li{
+            float: left;
+            margin: 0 20px 0 0;
+        }
+        .iconfont{
+            display: inline-block;
+            width: 32px;
+            height: 35px;
+            font-size: 32px;
+            line-height: 35px;
+        }
+        .qq{
+            color: #10a8ff;
+        }
+        .jingdong{
+            color: #c81825;
+        }
+        .weixin{
+            color: #0c0;
+        }
+        .sina{
+            color: #dd2e37;
+        }
+        .unfold{
+            float: right;
+            display: block;
+            line-height: 34px;
+            color: #999;
+            i{
+                display: inline-block;
+                width: 20px;
+                height: 26px;
+                margin-top: 4px;
+                margin-left: 5px;
+                background: url(https://passport.yhd.com/front-passport/passport/images/login.png?e829f75) no-repeat -200px 3px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+// 底部
+#simplefooter {
+    width: 980px;
+    margin: 20px auto 0;
+    text-align: center;
+    a{
+        margin: 0 8px;
+        color: #333;
+    }
+    p{
+        margin-top: 10px;
+        color: #333;
+    }
+}

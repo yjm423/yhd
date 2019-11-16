@@ -1,0 +1,692 @@
+* {
+    margin: 0;
+    padding: 0;
+    // box-sizing: border-box;
+
+}
+body, button, input, select, textarea {
+    font: 12px Arial,Helvetica,sans-serif;
+    color: #333;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+/* 使用font-face声明字体 */
+@font-face {
+    font-family: 'iconfont';
+    src: url('../style/iconfont/iconfont.woff') format("woff");
+}
+@font-face {
+    font-family: 'detail';
+    src: url('../style/iconfont/detail.woff') format("woff");
+}
+@font-face {
+    font-family: 'detail';
+    src: url('../style/iconfont/iconfont_cart.woff') format("woff");
+}
+
+/* 定义使用iconfont的样式 */
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+}
+.iconDetail{
+    font-family: "detail" !important;
+    font-size: 16px;
+    font-style: normal;
+}
+
+.iconCart{
+    font-family: "iconfont-cart" !important;
+    font-size: 16px;
+    font-style: normal;        
+}
+.clearfix:after {
+    display: block;
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+}
+.wrap{
+   width: 1200px;
+   margin: 0 auto;
+    
+}
+/* 头部 */
+header {
+    min-width: 980px;
+    background-color: #fff;
+   
+
+    .top_bar {
+        height: 30px;
+        border-bottom: 1px solid #e5e5e5;
+        background-color: #f4f4f4;
+        line-height: 30px;
+        font-size: 12px;
+
+        .top_bar_main {
+            margin: 0 auto;
+            width: 1200px;
+            height: 30px;
+
+            .icon {
+                display: inline-block;
+                font-style: normal;
+                vertical-align: middle;
+                // float: left;
+            }
+
+            .iconfont {
+                color: #ff4040;
+            }
+
+            >a {
+                float: left;
+                display: block;
+                height: 30px;
+                padding: 0 10px;
+                color: #666;
+
+
+                .text {
+                    padding-left: 3px;
+                }
+
+                em {
+                    font-style: normal;
+                }
+            }
+
+            .notice {
+                float: left;
+                height: 30px;
+                width: 230px;
+                padding-left: 20px;
+                color: #666;
+                overflow: hidden;
+                position: relative;
+
+
+                .notice_slider {
+                    // display: block;
+                    width: 206px;
+                    height: 90px;
+                    position: absolute;
+                    left: 36px;
+                    top: -30px;
+                    padding-left: 3px;
+
+                }
+
+
+            }
+
+            // 登录入口
+            .login_entry {
+                float: right;
+                color: #666;
+
+                li {
+                    float: left;
+                    position: relative;
+                    // z-index: 600;
+                    height: 30px;
+
+                    .icon {
+                        color: #aaa;
+                        display: inline-block;
+                        vertical-align: middle;
+                        // float: left;
+                    }
+
+                    .text {
+                        padding-left: 3px;
+                        color: #333;
+                    }
+
+                    .unlogin {
+                        padding: 0 10px;
+
+                        .hd_hi {
+                            float: left;
+                        }
+
+                        .login_link {
+                            color: #ff4040;
+                            cursor: pointer;
+                            padding-left: 3px;
+                        }
+
+                        .regist_link {
+                            padding-left: 8px;
+                            color: #aaa;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .hd_menu {
+                        padding: 0 7px;
+                        float: left;
+                        min-width: 66px;
+                        height: 30px;
+
+
+                    }
+                }
+
+            }
+        }
+    }
+
+  
+}
+
+.main_content{
+    .cart_head{
+        height: 60px;
+        padding-top: 10px;
+        min-width: 980px;
+        
+        
+    }
+    .logo{
+        display: block;
+        float: left;
+        padding-top: 17px;
+        width: 40px;
+        height: 28px;
+        margin-right: 10px;
+        background: url(https://img.yihaodianimg.com/cart/shopping/pc/images/logo.png) no-repeat bottom;
+        
+    }
+    .logo_text {
+        display: block;
+        float: left;
+        padding-top: 8px;
+        width: 73px;
+        height: 40px;
+        margin-right: 10px;
+        background: url(https://img.yihaodianimg.com/cart/shopping/pc/images/logo_txt.png) no-repeat 0 20px;
+    }
+
+    .area_wrap{
+        float: left;
+        height: 26px;
+        width: 235px;
+        padding-top: 18px;
+        padding-left: 10px;
+        line-height: 26px;
+        
+        .area_txt {
+            float: left;
+        }
+        .address {
+            position: absolute;
+            z-index: 1009;
+            height: 22px;
+            line-height: 22px;
+            padding: 2px 38px 2px 11px;
+            border: 1px solid #eceaea;
+            border-radius: 5px;
+            background: #fcfbfb;
+            cursor: pointer;
+        }
+        .val_text {
+            color: #666;
+            white-space: nowrap;
+           
+        }
+        i {
+            margin: 0 9px;
+        }
+        .btn_arrow {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 12px;
+            height: 6px;
+            background: url(https://img.yihaodianimg.com/cart/shopping/pc/images/sprite.png) -60px -25px;
+   
+        }   
+    }
+
+    .search{
+        float: right;
+        width: 260px;
+        height: 20px;
+        padding: 5px 10px;
+        margin: 15px 0;
+        border: 1px solid #eceaea;
+        border-radius: 5px;
+        background: #fcfbfb;
+
+        input{
+            float: left;
+            width: 230px;
+            height: 20px;
+            border: none;
+            background: #fcfbfb;
+            color: #666;
+            outline: none;
+        }
+        .search_btn{
+            width: 30px;
+            height: 20px;
+            text-align: center;
+            color: #aaa;
+            font-size: 18px;
+        }
+        
+    }
+
+    .good_info{
+        margin: 10px auto;
+        padding: 0 30px;
+        // height: 40px;
+        // border: 1px solid #dfdfdf;
+        border-radius: 5px;
+        background: #fff;
+        color: #666;
+        line-height: 40px;
+        width: 1200px;
+        min-width: 980px;
+        box-sizing: border-box;
+
+        li{
+            float: left;
+            line-height: 40px;
+        }
+        .checkbox {
+            width: 125px;
+            cursor: pointer;
+        }
+        
+        .price_txt {
+            width: 435px;
+            text-align: right;
+            min-width: 165px;
+        }
+        .num_txt{
+            width: 280px;
+            text-align: center;
+            min-width: 170px;
+        }
+        .total{
+            width: 110px;
+            text-align: right;
+        }
+        .act{
+            width: 90px;
+            text-align: right;
+        }
+    }
+
+    .cart_list{
+        background-color: #fff;
+        border: 1px solid #dcdcdc;
+        border-radius: 3px;
+        margin-top: 20px;
+        .cart_tit{
+            padding: 15px 30px;
+            height: 25px;
+            border-bottom: 1px solid #dcdcdc;
+            line-height: 25px;
+        }
+        .cheakbox{
+            position: relative;
+            // display: inline-block;
+            width: 13px;
+            height: 13px;
+            margin-right: 20px;
+            vertical-align: middle;
+           input{
+            line-height: 16px;
+            vertical-align: middle;
+           }
+          
+        }
+        .shop{
+            margin-left: 10px;
+            vertical-align: middle;
+            font-size: 14px;
+        }
+        .shop_logo{
+            display: inline-block;
+            margin: 5px 0 4px 3px;
+            width: 16px;
+            height: 16px;
+            background: url(https://img.yihaodianimg.com/cart/shopping/pc/images/sprite.png) 0 -25px;
+            vertical-align: middle;
+        }
+        .cart_prod{
+            position: relative;
+            padding: 20px 0 20px 35px;
+
+            img{
+                position: relative;
+                z-index: 3;
+                float: left;
+                width: 75px;
+                height: 75px;
+                margin-left: 15px;
+            }
+            .item_tit {
+                float: left;
+                width: 260px;
+                height: 40px;
+                padding-top: 4px;
+                padding-left: 20px;
+                line-height: 20px;
+                overflow: hidden;
+            }
+            .price{
+                // width: 160px;
+                // padding-right: 0;
+                position: relative;
+                float: left;
+                width: 200px;
+                padding-top: 2px;
+                padding-right: 5px;
+                line-height: 24px;
+                text-align: right;
+            }
+            input{
+                float: left;
+            }
+            .num{
+                
+                padding: 3px 0;
+                width: 80px;
+                height: 18px;
+                line-height: 18px;
+                border: 1px solid #dfdfdf;
+                border-radius: 2px;
+                background-color: #fff;
+                overflow: hidden;
+                position: relative;
+                margin-left: 150px;
+                float: left;
+                
+                display: inline-block;
+                
+                span{
+                    float: left;
+                    width: 20px;
+                    text-align: center;
+                    color: #666;
+                    font-family: 'Tahoma';
+                    font-size: 14px;
+                    overflow: hidden;
+                    cursor: pointer;
+                }
+                input{
+                    float: left;
+                    width: 38px;
+                    height: 18px;
+                    border: none;
+                    border-left: 1px solid #dfdfdf;
+                    border-right: 1px solid #dfdfdf;
+                    text-align: center;
+                    line-height: 18px;
+                    outline: none;
+                }
+            }
+
+            .price_wrap{
+                padding-left: 0;
+                padding-right: 37px;
+                float: left;
+                width: 120px;
+                padding-top: 1px;
+                text-align: right;
+                // line-height: 24px;
+                font-family: 'Tahoma';
+                font-weight: bold;
+                color: #333;
+                
+            }
+            .item_act{
+                position: relative;
+                float: left;
+                width: 80px;
+                padding-top: 2px;
+                line-height: 24px;
+                text-align: center;
+                margin-left: 70px;
+            }
+        }
+
+    }
+
+    // 商品总价
+    .total_price{
+        position: relative;
+        z-index: 333;
+        height: 60px;
+        width: 1200px;
+        margin-top: 20px;
+
+
+        .act_l{
+            float: left;
+            width: 600px;
+            height: 16px;
+            padding: 22px 0px;
+            line-height: 16px;
+            font-size: 12px;
+            color: #999;
+            overflow: hidden;
+            input{
+                float: left;
+                position: relative;
+                // display: inline-block;
+                width: 13px;
+                height: 13px;
+                margin-right: 20px;
+                border: 1px solid #dcdcdc;
+                border-radius: 3px;
+                background-color: #fff;
+            }
+            .sel_all{
+                // float: left;
+                display: inline-block;
+                margin: 0 18px 0 30px;
+                .all{
+                    float: left;
+                    color: #333;
+                    
+                    cursor: pointer;
+                    margin-right: 18px;
+                }
+            }
+
+        }
+        .act_r{
+            float: right;
+            width: 600px;
+            height: 60px;
+            line-height: 60px;
+
+            .count_btn{
+                float: right;
+                display: inline-block;
+                width: 110px;
+                text-align: center;
+                background-color: #ff6c6c;
+                font-family: 'microsoft yahei';
+                font-weight: bold;
+                font-size: 17px;
+                color: #fff;
+            }
+            .count{
+                position: relative;
+                float: right;
+                height: 60px;
+                padding-right: 20px;
+                margin: -3px 15px 0 15px;
+                font-size: 13px;
+                overflow: hidden;
+            }
+            
+             
+                .money{
+                    position: relative;
+                    top: 1px;
+                    font-size: 16px;
+                    color: #ff5e5e;
+                    font-weight: bold;
+
+                    b{
+                        margin-left: 2px;
+                        font-size: 22px;
+                    }
+                }
+                .num_count{
+                    font-size: 12px;
+                    color: #333;
+                    float: right;
+                    b{
+                        margin: 0px 2px;
+                        color: #ff5e5e;
+                        font-family: 'Tahoma'
+                    }
+                    a{
+                        padding-right: 10px;
+                        font-size: 12px;
+                        color: #999;
+                    }
+                }
+            
+        }
+    }
+}
+
+#ft_wrap {
+    background: #fff;
+
+   .ft_logo{
+    padding: 30px 0;
+    border-bottom: 1px solid #ebebeb;
+    overflow: hidden;
+    li{
+        
+        float: left;
+        width: 205px;
+        overflow: hidden;
+        margin-right: 81px;
+       
+        &:last-child{
+            margin-right: 0;
+        }
+      
+        img{
+            float: left;
+            display: block;
+            width: 66px;
+            height: 66px;
+            margin-right: 15px;
+        }
+        b{
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        span{
+            font-size: 14px;
+            color: #999;
+            line-height: 26px;
+        }
+    }
+   } 
+   .serve{
+    padding: 20px 0 20px;
+    overflow: hidden;
+    .serve_l{
+        float: left;
+        padding-left: 15px;
+        dl{
+            float: left;
+            display: block;
+            width: 195px;
+            dt{
+                height: 32px;
+                padding: 0 8px;
+                font-size: 14px;
+                line-height: 32px;
+                overflow: hidden;
+                font-family: "Microsoft YaHei";
+                color: #666;
+                font-weight: bold;
+            }
+            dd{
+                height: 24px;
+                padding: 0 8px;
+                line-height: 24px;
+                overflow: hidden;
+                white-space: normal;
+                font-size: 12px;
+                color: #666;
+                    
+                
+            }
+        }
+    }
+    .serve_ewm{
+        width: 280px;
+        overflow: hidden;
+        float: left;
+        margin-right: -50px;
+        .ewm{
+            float: left;
+            margin-right: 50px;
+            line-height: 32px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+        }
+        
+    }
+   }
+   .wrap{
+    margin: 0 auto;
+    width: 1070px;
+   }
+   
+   .footer{
+       p{
+        color: #666;
+        text-align: center;
+        text-indent: 0;
+        line-height: 100%;
+        margin: 15px 0;
+        padding: 0;
+        font-size: 12px;
+            a{
+                color: #333;
+                margin: 0px 3px;
+            }
+       }
+       .partner{
+        display: block;
+        padding: 10px 0 20px;
+        text-align: center;
+        font-size: 0;
+
+        img{
+            display: inline-block;
+            margin: 0 4px;
+            vertical-align: top;
+        }
+       }
+   }
+}
