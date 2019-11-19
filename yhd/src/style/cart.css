@@ -315,6 +315,9 @@ header .top_bar .top_bar_main .login_entry li .hd_menu {
   position: relative;
   padding: 20px 0 20px 35px;
 }
+.main_content .cart_list .cart_prod ul > li {
+  margin-bottom: 10px;
+}
 .main_content .cart_list .cart_prod img {
   position: relative;
   z-index: 3;

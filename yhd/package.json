@@ -1,0 +1,22 @@
+{
+  "name": "yhd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "jquery_lazyload": "^1.9.3",
+    "requirejs": "^2.3.6"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
