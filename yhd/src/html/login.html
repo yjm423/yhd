@@ -47,16 +47,16 @@
                 <div class="login_pc">
                     <div class="clearfix">
                         <h3>1号店用户登录</h3>
-                        <a href="#" class="regist_new blue_link">注册新账号</a>
+                        <a href="http://localhost/project/yhd/yhd/src/html/registry.html" class="regist_new blue_link">注册新账号</a>
                     </div>
                     <div class="login_form">
                         <div class="form_item">
                             <label class="user_ico">&nbsp;</label>
-                            <input type="text" placeholder="邮箱/手机/用户名">
+                            <input type="text" placeholder="邮箱/手机/用户名" id="username">
                         </div>
                         <div class="form_item">
                             <label class="paswd_ico">&nbsp;</label>
-                            <input type="text" placeholder="密码">
+                            <input type="text" placeholder="密码" id="password">
                         </div>
                         <div class="auto_login">
                             <p class="auto_sel"> 自动登录</p>
@@ -98,6 +98,9 @@
             data-ref="YHD_Footer_Licence" target="_blank">营业执照</a>
         <p>Copyright © 1号店网上超市 2007-2018，All Rights Reserved</p>
     </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/lib/jQuery.md5.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 
 </html>

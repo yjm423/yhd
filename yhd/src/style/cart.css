@@ -251,7 +251,7 @@ header .top_bar .top_bar_main .login_entry li .hd_menu {
 }
 .main_content .good_info li {
   float: left;
-  line-height: 40px;
+  height: 40px;
 }
 .main_content .good_info .checkbox {
   width: 125px;

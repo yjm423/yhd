@@ -148,6 +148,10 @@ a {
   border: 1px solid #dedede;
   border-radius: 3px;
 }
+.rgt_wrap .rgt_inner .user .user_info {
+  position: absolute;
+  left: 300px;
+}
 .rgt_wrap .rgt_inner span {
   position: absolute;
   left: 20px;

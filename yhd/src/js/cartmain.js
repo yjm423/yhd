@@ -9,5 +9,6 @@ require.config({
 
 require(['jquery','cookie','cart'],function($,cookie,cart){
     cart.render();
-    cart.numchange();
+    
+    
 });
