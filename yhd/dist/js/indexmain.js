@@ -1,0 +1,1 @@
+"use strict";require.config({paths:{jquery:"./lib/jquery",indexRender:"./index",lazyload:"./lib/jquery.lazyload"}}),require(["jquery","indexRender"],function(e,r){require(["lazyload"],function(){r.render()}),r.tab(),r.ranktab()});

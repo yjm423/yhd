@@ -171,6 +171,7 @@ li {
   vertical-align: middle;
   font-family: "Microsoft YaHei";
   font-size: 14px;
+  outline: none;
 }
 .login_inner .login_form .auto_login {
   position: relative;

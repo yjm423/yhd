@@ -77,14 +77,14 @@ define(['jquery','lazyload'],function(){
             })
         },
 
+        // 轮播图
         tab:function(){
             // console.log($('.tab_ol li'));
             $('.tab_ol li').on('mouseover',function(){
                 // console.log($(this).index());
-                console.log(index);
                 index=$(this).index();
                 $(this).addClass('cur').siblings().removeClass('cur');
-                console.log($('.lunbo_li').eq($(this).index()));
+                // console.log($('.lunbo_li').eq($(this).index()));
                 $('.lunbo_li').eq($(this).index()).css('opacity',1).siblings().css('opacity',0);
              
             });
@@ -116,6 +116,34 @@ define(['jquery','lazyload'],function(){
                 $('.lunbo_li').eq(index).css('opacity',1).siblings().css('opacity',0);
                 $('.tab_ol li').eq(index).addClass('cur').siblings().removeClass('cur');
             },2000);
+        },
+
+        // 模块tab切换
+        ranktab:function(){
+           var i=0;
+          
+                $('.arr_r').on('click',function(){
+                    if(i<2){
+                        console.log($(this).parent().find('.rank_inner'));
+                        $(this).parent().find('.rank_inner').animate({left:'-=210'},600);
+                        i++;
+                        
+                    }else{
+                        i=2;
+                    }    
+                });
+               
+                $('.arr_l').on('click',function(){
+                    if(i>0){
+                        $(this).parent().find('.rank_inner').animate({left:'+=210'},600);
+                        i--;
+                    }else{
+                        i=0;
+                    }
+                   
+                });
+           
+           
         }
     }
 })

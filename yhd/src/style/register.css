@@ -152,6 +152,18 @@ a {
   position: absolute;
   left: 300px;
 }
+.rgt_wrap .rgt_inner .user .phone_info {
+  position: absolute;
+  left: 300px;
+}
+.rgt_wrap .rgt_inner .user .pass_info {
+  position: absolute;
+  left: 300px;
+}
+.rgt_wrap .rgt_inner .user .againpass_info {
+  position: absolute;
+  left: 300px;
+}
 .rgt_wrap .rgt_inner span {
   position: absolute;
   left: 20px;

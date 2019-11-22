@@ -32,7 +32,7 @@
                 </div>
                 <div class="login_entry">
                     您好，欢迎光临1号店！
-                    <a href="#" class="login_link">请登录</a>
+                    <a href="http://localhost/project/yhd/yhd/src/html/login.html" class="login_link">请登录</a>
                 </div>
             </div>
 
@@ -53,36 +53,37 @@
 
                 </li>
                 <li>
-                    <div class="user">
-                        <input type="text" id="username">
-                        <span class="tip">手机号</span>
+                    <div class="user phone">
+                        <input type="text" id="phone" placeholder="手机号">
+                        
                     </div>
-                    <div></div>
+                    <div class="phone_info"></div>
 
                 </li>
                 <li>
                     <div class="yzm">
-                        <input type="text" id="username">
-                        <span class="tip">短信验证码</span>
+                        <input type="text" id="yzm" placeholder="随机验证码">
+                       
                     </div>
-                    <a href="#" class="get_yzm">获取验证码</a>
-                    <div></div>
+                    <div class="get_yzm">IJ3qdo</div>
+                    <div class="yzm_info"></div>
 
                 </li>
+                
                 <li>
                     <div class="user">
-                        <input type="text" id="password" placeholder="设置密码">
+                        <input type="password" id="password" placeholder="设置密码">
                         
                     </div>
-                    <div></div>
+                    <div class="pass_info"></div>
 
                 </li>
                 <li>
                     <div class="user">
-                        <input type="text" id="username">
-                        <span class="tip">确认密码</span>
+                        <input type="password" id="againpass" placeholder="确认密码">
+                        
                     </div>
-                    <div></div>
+                    <div class="againpass_info"></div>
 
                 </li>
                 <li class="rgt_b"> 
@@ -90,7 +91,7 @@
                         点击注册，表示您同意1号店 
                         <a href="#">《服务协议及隐私声明》</a> 
                     </div>
-                    <a href="#" id="rgt_btn">同意协议并注册</a>
+                    <a href="javascript:;" id="rgt_btn">同意协议并注册</a>
                 </li>
             </ul>
         </div>
@@ -100,10 +101,11 @@
         <a>沪B2-20170039</a>|
         <a href="http://d7.yihaodianimg.com/N09/M07/BD/7B/ChEi11kJnKaAJQMrAAK-LnhML4o60600.jpg" data-ref="YHD_Footer_Licence" target="_blank">营业执照</a><p>Copyright © 1号店网上超市 2007-2018，All Rights Reserved</p>
     </div>
-    
-    <script src="../js/jquery.js"></script>
+
+    <script src="../js/lib/jquery.js"></script>
     <script src="../js/lib/jQuery.md5.js"></script>
     <script src="../js/registry.js"></script>
+  
 </body>
 
 </html>

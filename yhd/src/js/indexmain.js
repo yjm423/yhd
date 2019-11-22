@@ -1,8 +1,8 @@
 require.config({
     paths:{
-        jquery:'./jquery',
-        indexRender:'./indexRender',
-        lazyload:'./jquery.lazyload'
+        jquery:'./lib/jquery',
+        indexRender:'./index',
+        lazyload:'./lib/jquery.lazyload'
     }
     
 });
@@ -12,6 +12,6 @@ require(['jquery','indexRender'],function($,index){
         index.render();
     })
     index.tab();
-    
+    index.ranktab();
 
 });

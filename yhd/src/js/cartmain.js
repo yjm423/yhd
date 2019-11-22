@@ -1,7 +1,7 @@
 // 主文件入口
 require.config({
     paths:{
-        jquery:'./jquery',
+        jquery:'./lib/jquery',
         cookie:"https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min",
         cart:'./cart'
     }

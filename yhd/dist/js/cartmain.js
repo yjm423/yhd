@@ -1,0 +1,1 @@
+"use strict";require.config({paths:{jquery:"./lib/jquery",cookie:"https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min",cart:"./cart"}}),require(["jquery","cookie","cart"],function(e,r,c){c.render()});
