@@ -36,9 +36,8 @@ gulp.task('cssmin', function() {
 // npm i gulp-uglify -D
 gulp.task('jsmin', function() {
     return gulp
-        .src(['./src/js/*.js', '!src/js/*.min.js','./src/js/lib/*.js'])
+        .src(['./src/js/*.js', '!src/js/*.min.js'])
         .pipe(jsmin())
-        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('./dist/js'));
 });
 

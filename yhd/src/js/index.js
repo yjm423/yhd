@@ -82,7 +82,7 @@ define(['jquery','lazyload'],function(){
             // console.log($('.tab_ol li'));
             $('.tab_ol li').on('mouseover',function(){
                 // console.log($(this).index());
-                index=$(this).index();
+                index=$(this).index();   //鼠标经过按钮时  将当前的索引值给到变量
                 $(this).addClass('cur').siblings().removeClass('cur');
                 // console.log($('.lunbo_li').eq($(this).index()));
                 $('.lunbo_li').eq($(this).index()).css('opacity',1).siblings().css('opacity',0);

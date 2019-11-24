@@ -143,7 +143,7 @@ define(['jquery', 'cookie'], function ($, cookie) {
 
                 let total_s = 0
                 let allprice=$('input:checked').not('.allselector').parents('li').find('.all_price');
-               console.log(allprice);
+            //    console.log(allprice);
                 for (let i of allprice) {
                     //   console.log($('.all_price'))
                     total_s += Number($(i).html());
@@ -176,7 +176,6 @@ define(['jquery', 'cookie'], function ($, cookie) {
             });
              //选中的复选框(不包括全选按钮)的个数和总共的复选框的个数(不包括全选按钮)长度一致。
              let inputslength=$("input[type='checkbox']").length;//复选框的个数(不包括全选按钮)
-           console.log($("input[type='checkbox']"));
           
              console.log(inputslength);
              $('input').on('click',function(){
