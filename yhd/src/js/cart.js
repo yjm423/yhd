@@ -3,10 +3,10 @@ define(['jquery', 'cookie'], function ($, cookie) {
 
     return {
         render: function () {
-            let shop = $.cookie('shop');
+            let shop = $.cookie('shop');  //存储的是数组对象
             if (shop) {
                 shop = JSON.parse(shop);
-                // console.log(shop);
+                console.log(shop);
                 let id = shop.map(elm => elm.id).join();
                 let _this = this;
                 // console.log(id);
@@ -177,7 +177,7 @@ define(['jquery', 'cookie'], function ($, cookie) {
              //选中的复选框(不包括全选按钮)的个数和总共的复选框的个数(不包括全选按钮)长度一致。
              let inputslength=$("input[type='checkbox']").length;//复选框的个数(不包括全选按钮)
           
-             console.log(inputslength);
+            //  console.log(inputslength);
              $('input').on('click',function(){
                 if($('.cart_prod input:checked').not('.allselector').length===inputslength-1){
                     $('.allselector').prop('checked',true);

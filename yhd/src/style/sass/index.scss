@@ -1,9 +1,12 @@
+@charset "utf-8";
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 }
+
 
 li {
     list-style: none;
@@ -20,7 +23,7 @@ body {
 /* 使用font-face声明字体 */
 @font-face {
     font-family: 'iconfont';
-    src: url('../style/iconfont/iconfont.woff') format("woff");
+    src: url('../iconfont/iconfont.woff') format("woff");
 }
 
 /* 定义使用iconfont的样式 */

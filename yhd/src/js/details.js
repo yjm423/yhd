@@ -3,6 +3,7 @@ let baseUrl = "http://localhost/project/yhd/yhd/";
 define(['jquery', 'cookie'], function ($, cookie) {
     return {
         render: function () {
+            console.log(location.search.split('='));
             let id = location.search.split('=')[1];
             // console.log(1);
             $.ajax({
