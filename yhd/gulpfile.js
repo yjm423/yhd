@@ -5,7 +5,9 @@ const cssmin = require('gulp-cssmin');
 const jsmin = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const concat = require('gulp-concat');
-const less = require('gulp-less');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const plugins = require('gulp-load-plugins')();
 const path = require('path');
 const spritesmith = require('gulp.spritesmith');
 const babel = require('gulp-babel'); //es6转es5主要模块
@@ -85,10 +87,29 @@ gulp.task('less', function() {
         }))
         .pipe(gulp.dest('./src/style'));
 });
-
+// 6. sass编译
+// npm i gulp-sass -D
+gulp.task('sass', function() {
+    return gulp
+        .src('./src/style/*.sass')
+        .pipe(sass({
+            paths: [path.join(__dirname, 'sass', 'includes')]
+        }))
+        .pipe(gulp.dest('../style/css'));
+});
+//5.利用sass，生成压缩css。
+gulp.task('compilesass', function () {
+    return gulp.src('src/sass/*.scss')
+        .pipe(plugins.sourcemaps.init()) // 初始化 gulp-sourcemaps 插件  生成.map文件初始化  
+        .pipe(plugins.sass({ // 调用 sass 插件，编译 sass 文件
+            outputStyle: 'compressed' //压缩一行
+        }))
+        .pipe(plugins.sourcemaps.write('.')) // 生成 sourcemap 生成.map文件 
+        .pipe(gulp.dest('src/style/css'));
+});
 // 7. 文件监听
-gulp.task('watchless', function() {
-    gulp.watch('./src/style/*.less', gulp.series('less'));
+gulp.task('watchsass', function() {
+    gulp.watch('./src/style/*.sass', gulp.series('sass'));
 });
 
 // 自动构建
