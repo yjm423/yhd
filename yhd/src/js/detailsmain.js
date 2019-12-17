@@ -16,5 +16,5 @@
 // });
 
 
-import{index, render} from './index';
-new render().init();
+import{Detailrender,Amplify,TabSwitch} from './details.js';
+// new render().init();

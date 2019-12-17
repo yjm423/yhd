@@ -25,13 +25,13 @@ function tab() {
 
         left[i].onclick = function () {
           
-            if(this.parentNode.num&&this.parentNode.l){
-                num=this.parentNode.num;
-                l=this.parentNode.l;
-            }else{
-                num=0;
-                l=0;
-            }
+            // if(this.parentNode.num&&this.parentNode.l){
+            //     num=this.parentNode.num;
+            //     l=this.parentNode.l;
+            // }else{
+            //     num=0;
+            //     l=0;
+            // }
             if (num >0) {
                 l = l + 210;
                 var rank_wrap = this.parentNode.children[3].children[0];

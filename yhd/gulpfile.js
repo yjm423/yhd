@@ -118,7 +118,7 @@ gulp.task('dev', function() {
 });
 
 // 精灵图
-// npm i gulp.spritesmith -D
+// npm i gulp.spritesmith 
 gulp.task('sprite', function() {
     var spriteData = gulp.src('src/img/*').pipe(spritesmith({
         imgName: 'sprite.png',

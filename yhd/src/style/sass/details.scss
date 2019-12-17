@@ -20,11 +20,11 @@ a {
 /* 使用font-face声明字体 */
 @font-face {
     font-family: 'iconfont';
-    src: url('../style/iconfont/iconfont.woff') format("woff");
+    src: url('../iconfont/iconfont.woff') format("woff");
 }
 @font-face {
     font-family: 'detail';
-    src: url('../style/iconfont/detail.woff') format("woff");
+    src: url('../iconfont/detail.woff') format("woff");
 }
 
 /* 定义使用iconfont的样式 */
@@ -414,6 +414,7 @@ header {
             }
             .s_img{
                 position: relative;
+                cursor: move;
             }
             .sf{
                 position: absolute;

@@ -881,14 +881,58 @@ header {
     #indexleft{
         position: absolute;
         left: 50%;
-        top: 525px;
+        
         margin-left: -665px;
         z-index: 99;
+        ul{
+            width: 99px;
+            background-color: #fff;
+        }
 
         .channel{
             border: 1px solid #eaeaea;
             border-bottom: none;
+            li {
+            
+                height: 50px;
+                line-height: 50px;
+                padding-left: 9px;
+                font-size: 14px;
+                font-weight: 700;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #eaeaea;
+              
+            }
         }
+        ul{
+            border: 1px solid #eaeaea;
+            li{
+             
+                height: 32px;
+                line-height: 32px;
+                padding-left: 9px;
+                font-size: 12px;
+                color: #999;
+                text-decoration: none;
+        
+            }
+            .active{
+                color: #ff1e32;
+                background-color: #f6f6f6;
+            }
+            
+        }
+        li{
+            cursor: pointer;
+            &:hover{
+                color: #ff1e32;
+                background-color: #f6f6f6;
+            }
+        }
+        
+
+        
     }
 
 
