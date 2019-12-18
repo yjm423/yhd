@@ -130,82 +130,135 @@ class Amplify {
 
 class TabSwitch {
     constructor() {
-        this.prev=tool.$('.pics .prev');  //前一张
-        this.next=tool.$('.pics .next');  //后一张
-        this.oUL=tool.$('.img_wrap ul');  //移动的ul
+        this.prev = tool.$('.pics .prev');  //前一张
+        this.next = tool.$('.pics .next');  //后一张
+        this.oUL = tool.$('.img_wrap ul');  //移动的ul
     }
     init() {
-        let _this=this;
-        let l = '-=68';
-        let r = '+=68';
-        this.next.onclick=function(){
-            let len = tool.$('.img_wrap li').length;
-            _this.oUL.style.left=-68+'px';
+        let _this = this;
+        let i = 0;  //记录点击的次数
 
-            // if ($('.img_wrap ul').offset().left < -(len - 5) * 68) {
-            //     $('.img_wrap ul').css('left', -(len - 5) * 68);
-            // }
 
-            // console.log($('.img_wrap ul').offset().left);
+        this.next.onclick = function () {
+
+            let len = tool.$('.img_wrap li', 'all').length;
+            let num = len - 5;// 点击次数
+            if (len > 5) {
+
+                i++;
+                console.log("r" + i);
+                if (i >= num) {
+                    _this.next.style.display = 'none';
+                }
+                _this.oUL.style.left = -i * 68 + 'px';
+                _this.prev.style.display = 'block';
+            } else {
+                _this.oUL.style.left = 0;
+            }
+
         }
-        // $('.pics .prev').on('click', function () {
-        //     if ($('.img_wrap ul').offset().left > 0) {
-        //         $('.img_wrap ul').css('left', 0);
-        //     } else {
-        //         $('.img_wrap ul').css('left', r);
-        //     }
-        //     // console.log($('.img_wrap ul').offset().left);
+        this.prev.onclick = function () {
+            let len = tool.$('.img_wrap li', 'all').length;
 
-        // });
+            if (len > 5) {
+                i--;
+                console.log('l' + i);
+                if (i <= 0) {
+                    i = 0;
+                    _this.prev.style.display = 'none';
+                }
+                _this.oUL.style.left = -i * 68 + 'px';
+                _this.next.style.display = 'block';
+            }
+
+        }
+
     }
 }
 
+
+class Addgood {
+    constructor() {
+        this.add = tool.$('.num_btn .add');
+        this.num = tool.$('.num');
+        this.reduce = tool.$('.num_btn .reduce');
+        this.addbtn = tool.$('.join_cart .btn');
+    }
+    init() {
+        let _this = this;
+        var n = 1;
+        // 数量加
+        this.add.onclick = function () {
+            n++;
+            _this.num.value = n;
+
+        }
+        // 数量减
+        this.reduce.onclick = function () {
+            n--;
+            if (n < 0) {
+                n = 0;
+            }
+            _this.num.value = n;
+        }
+
+        //添加到cookie
+        this.addbtn.onclick = function () {
+            let id = location.search.split('=')[1];
+            //查找是否存在cookie
+            let shop = tool.getcookie('shop');  //获取的字符串
+
+            let product = {
+                sid: id,
+                num: _this.num.value
+            };
+            // console.log(product);
+            //将product存入cookie中
+            if (shop) { //如果shop存在 转对象
+                shop = JSON.parse(shop);  //对象
+                //判断是否存在同一件商品 根据sid值判断 some方法返回值为布尔值
+                // if(shop.some(ele=>ele.id==sid)){  
+
+                // }
+                // console.log(shop);
+                // for (let i = 0; i < shop.length; i++) {
+                //     console.log(shop[i].sid,id);
+                // if (shop[i].sid == id) { //如果商品存在  
+
+                //     shop[i].num = parseInt(shop[i].num) + parseInt(_this.num.value) ;
+                //     tool.setcookie('shop', JSON.stringify(shop));
+
+                // } else {  //不存在 
+
+                //     shop.push(product);
+                //     break;
+                // }
+
+                // }
+                if (shop.some(elm => elm.sid == id)) {
+                    //   根据id判断商品是否存在 
+                    shop.forEach(elm => {
+                        elm.sid == id && (elm.num = parseInt(elm.num)+parseInt(_this.num.value)) ;
+                    });
+                } else {
+                    shop.push(product);
+                }
+
+
+                //    console.log(shop);
+            } else {
+                shop = [];
+                shop.push(product);
+            }
+            tool.setcookie('shop', JSON.stringify(shop));
+        }
+    }
+}
 new Detailrender().init();
 new Amplify().init();
 new TabSwitch().init();
-export { Detailrender, Amplify ,TabSwitch}
-    // return {
-    //    
-
-    //    
-    //   
-
-    //     tabSwitch: function () {
-    //         
-
-    //     },
-
-    //     // 购物车添加
-    //     addgood: function () {
-    //         // 点击按钮 数量添加 减少
-    //         var num = 1
-    //         $('.num_btn .add').on('click', function () {
-    //             num++
-    //             console.log($('.num').val(num));
-    //         });
-    //         $('.num_btn .reduce').on('click', function () {
-    //             num--
-    //             if (num < 1) {
-    //                 num = 1
-    //             }
-    //             console.log($('.num').val(num));
-    //         });
-
-    //         // 点击添加到购物车
-    //         $('.join_cart .btn').on('click', function () {
-
-
-    //             let id = location.search.split('=')[1]
-    //             let shop = $.cookie('shop'); // 获取cookie数据 判断是否存在
-    //             console.log(shop);
-    //             let product = {
-    //                 id: id,
-    //                 price: $('.main_content  .price').html(),
-    //                 num: $('.num').val()
-    //             };
-    //             // 将product 放入cookie中
-
-
+new Addgood().init();
+export { Detailrender, Amplify, TabSwitch, Addgood }
 
     //             if (shop) {
     //                 shop = JSON.parse(shop);

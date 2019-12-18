@@ -16,5 +16,5 @@
 // });
 
 
-import{Detailrender,Amplify,TabSwitch} from './details.js';
+import{Detailrender,Amplify,TabSwitch,Addgood} from './details.js';
 // new render().init();
