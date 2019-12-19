@@ -217,28 +217,11 @@ class Addgood {
             if (shop) { //如果shop存在 转对象
                 shop = JSON.parse(shop);  //对象
                 //判断是否存在同一件商品 根据sid值判断 some方法返回值为布尔值
-                // if(shop.some(ele=>ele.id==sid)){  
-
-                // }
-                // console.log(shop);
-                // for (let i = 0; i < shop.length; i++) {
-                //     console.log(shop[i].sid,id);
-                // if (shop[i].sid == id) { //如果商品存在  
-
-                //     shop[i].num = parseInt(shop[i].num) + parseInt(_this.num.value) ;
-                //     tool.setcookie('shop', JSON.stringify(shop));
-
-                // } else {  //不存在 
-
-                //     shop.push(product);
-                //     break;
-                // }
-
-                // }
+                
                 if (shop.some(elm => elm.sid == id)) {
                     //   根据id判断商品是否存在 
                     shop.forEach(elm => {
-                        elm.sid == id && (elm.num = parseInt(elm.num)+parseInt(_this.num.value)) ;
+                        elm.sid == id && (elm.num = String(parseInt(elm.num)+parseInt(_this.num.value))) ;
                     });
                 } else {
                     shop.push(product);
@@ -260,25 +243,5 @@ new TabSwitch().init();
 new Addgood().init();
 export { Detailrender, Amplify, TabSwitch, Addgood }
 
-    //             if (shop) {
-    //                 shop = JSON.parse(shop);
-
-    //                 if (shop.some(elm => elm.id == id)) {
-    //                     //   根据id判断商品是否存在 
-    //                     shop.forEach(elm => {
-    //                         elm.id == id ? elm.num = num : null;
-    //                     });
-    //                 } else {
-    //                     shop.push(product);
-    //                 }
-    //             } else {
-    //                 shop = [];
-    //                 shop.push(product);
-    //             }
-    //             $.cookie('shop', JSON.stringify(shop));
-    //         });
-
-    //     }
-
-    // }
+    
 
