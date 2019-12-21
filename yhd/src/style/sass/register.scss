@@ -163,27 +163,43 @@ a{
             border: 1px solid #dedede;
             border-radius: 3px;
             
-            .user_info{
-                position: absolute;
-                left:300px;
-
-            }
-            .phone_info{
-                position: absolute;
-                left:300px;
-
-            }
-            .pass_info{
-                position: absolute;
-                left:300px;
-
-            }
-            .againpass_info{
-                position: absolute;
-                left:300px;
-
-            }
            
+           
+        }
+        .user_info{
+            position: absolute;
+            left: 348px;
+            top: 6px;
+            font-size: 12px;
+
+        }
+        .phone_info{
+            position: absolute;
+            left: 348px;
+            top: 6px;
+            font-size: 12px;
+
+        }
+        .pass_info{
+            position: absolute;
+            left: 348px;
+            top: 6px;
+            font-size: 12px;
+
+        }
+        .againpass_info{
+            position: absolute;
+            left: 348px;
+            top: 6px;
+            font-size: 12px;
+
+        }
+        .info{
+            position: absolute;
+            left: 348px;
+            top: 6px;
+            font-size: 12px;
+
         }
         span{
             position: absolute;

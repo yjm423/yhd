@@ -23,8 +23,8 @@ function render() {
                             title="${elm.title}" class="single_li">
                             <div class="single_top">
                                 <div class="s_bz"></div>
-                                <img class="top_img"
-                                    src="${elm.url}"
+                                <img class="top_img lazyload"
+                                data-src="${elm.url}"
                                     alt="">
                             </div>
                             <div class="single_bottom">
@@ -55,8 +55,8 @@ function render() {
                         <li class="good">
                         <a href="${baseUrl}/src/html/details.html?sid=${elm.sid}"
                         <div class="pic">
-                            <img class="good_img lazy"
-                            src="${url[0]}"
+                            <img class="good_img lazyload"
+                            data-src="${url[0]}"
                                 alt="">
                         </div>
                         <p class="good_text">${elm.title}</p>
@@ -77,7 +77,9 @@ function render() {
         a.innerHTML = temp;
         document.querySelector('.singlelist').appendChild(a);
         document.querySelector('.good_wrap').innerHTML = temp2;
+        var img=document.querySelectorAll('.lazyload');
 
+        lazyload(img);
     })
 }
 

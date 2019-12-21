@@ -1,258 +1,293 @@
-(function () {
+import { Tool } from './tool.js';
 
-    var uselock = true;
-    var tellock = true;
-    var yzmlock = true;
-    var confirmlock = true;
-    var passlock = true;
-    $('#username').on('blur', function () {
-        if ($(this).val() !== '') {
-            var user = $('#username').val();
-            regStr = /^[\\u4e00-\\u9fa5_a-zA-Z0-9-]{1,16}$/;
-            if (!(regStr.test(user))) {
-                $('.user_info').html('16位以内的字母、数字、下划线组成');
-                uselock = false;
-                return false;
+var tool = new Tool();
+class Registry {
+
+    constructor() {
+        this.user = tool.$('#username');
+        this.pass = tool.$('#password');
+        this.phone = tool.$('#phone');  //手机号
+        this.user_info = tool.$('.user_info'); //用户名提示
+        this.submit = tool.$('#rgt_btn'); //提交按钮
+
+        this.uselock = true;
+        this.yzmlock = true;
+        this.tellock = true;
+        this.confirmlock = true;
+        this.passlock = true;
+    }
+    init() {
+
+        let _this = this;
+
+        //1.用户名验证
+        this.user.onblur = function () {
+            if (this.value !== '') {
+                var user = this.value;
+                let regStr = /^[\\u4e00-\\u9fa5_a-zA-Z0-9-]{1,16}$/;
+                if (!(regStr.test(user))) {
+                    _this.user_info.innerHTML = '16位以内的字母、数字、下划线组成';
+                    _this.uselock = false;
+                    return false;
+                } else {
+                    tool.$ajax({
+                        type: 'post',
+                        url: 'http://localhost/project/yhd/yhd/lib/registry.php',
+                        data: {
+                            xingming: user,
+                        },
+                    }).then(function (res) {
+                        if (!res) {  //不存在
+                            _this.user_info.innerHTML = '√';
+                            _this.uselock = true;
+
+                        } else {
+                            _this.user_info.innerHTML = '用户已存在';
+                            _this.uselock = false;
+                        }
+                    });
+                }
+            } else {
+                _this.user_info.innerHTML = '用户名不能为空';
+                _this.uselock = false;
+            }
+
+        };
+
+
+        // 手机号验证
+        this.phone.onblur=function () {
+            _this.checkPhone();
+        };
+
+
+        //验证码
+        tool.$('.get_yzm').onclick = function () {
+            _this.code_Obj({
+                codeLength: 6
+            });
+
+        };
+
+        //验证码信息提示
+        tool.$('#yzm').onblur = function () {
+            if (this.value !== '') {
+                if (this.value == tool.$('.get_yzm').innerHTML) {
+                    tool.$('.yzm_info').innerHTML = '√';
+                    _this.yzmlock = true;
+                } else {
+                    tool.$('.yzm_info').innerHTML = '验证码输入错误';
+                    _this.yzmlock = false;
+                }
+            } else {
+                tool.$('.yzm_info').innerHTML = '验证码不能为空';
+                _this.yzmlock = false;
+            }
+        };
+
+        // 密码强度
+        var passReg = [
+            /^.{6,16}$/,
+            /[A-Z]+/,
+            /[a-z]+/,
+            /\d+/,
+            /\W+/
+        ];
+        this.pass.onkeyup = function () {
+            var check = passReg.map(reg => reg.test(tool.$('#password').value));
+            var strength = check.reduce((a, b) => {
+                if (b) a.count++;
+                return a;
+            }, {
+                count: 0
+            });
+
+            var res = tool.$('.pass_info');
+            switch (strength.count) {
+                case 1:
+                case 2:
+                    res.innerHTML = '太弱';
+                    _this.passlock = false
+                    break;
+                case 3:
+                    if (check[0]) res.innerHTML = '弱';
+                    _this.passlock = true;
+                    break;
+                case 4:
+                    if (check[0]) res.innerHTML = '中';
+                    _this.passlock = true;
+                    break;
+                case 5:
+                    res.innerHTML = '强';
+                    _this.passlock = true;
+                    break;
+            }
+
+        };
+
+        this.pass.onblur = function () {
+
+            if (this.value !== '') {
+                if (this.value.length >= 6 && this.value.length <= 12) {
+                    tool.$('.pass_info').innerHTML = '√';
+                    _this.passlock = true;
+                } else {
+                    tool.$('.pass_info').innerHTML = '密码由6到12位字符组成';
+                    _this.passlock = false;
+                }
 
             } else {
+                tool.$('.pass_info').innerHTML = '密码不能为空';
+                _this.passlock = false;
+            }
+        }
 
-                $.ajax({
+        // 密码确认
+        tool.$('#againpass').onblur=function () {
+            if (this.value !== '') {
+                if (tool.$('#password').value !== tool.$('#againpass').value) {
+                    tool.$('.againpass_info').innerHTML='密码输入错误';
+                    _this.confirmlock = false;
+                } else {
+                    tool.$('.againpass_info').innerHTML='√';
+                    _this.confirmlock = true;
+                }
+            } else {
+                tool.$('.againpass_info').innerHTML='密码不能为空';
+                _this.confirmlock = false;
+
+            }
+
+        };
+
+
+        //提交信息
+       
+        this.submit.onclick = function () {
+            var result=_this.verify();
+            if (result) {
+                tool.$ajax({
                     type: 'post',
                     url: 'http://localhost/project/yhd/yhd/lib/registry.php',
                     data: {
-                        xingming: $(this).val(),
+                        username: _this.user.value,
+                        password: hex_sha1(_this.pass.value)
                     },
-                    success: function (res) {
-                        if (!res) {  //不存在
-                            $('.user_info').html('√');
-                            uselock = true;
 
-                        } else {
-                            $('.user_info').html('用户已存在');
-                            uselock = false;
-                        }
-                    }
+                }).then(function () {
+                    location.href = 'http://localhost/project/yhd/yhd/src/html/login.html';
                 });
             }
-        } else {
-            $('.user_info').html('用户名不能为空');
-            uselock = false;
-        }
 
-    });
+        };
+
+    }
 
 
+    /**
+     * 手机号验证
+     */
+    checkPhone() {
 
-
-
-    // 手机号验证
-    $('#phone').on('blur', function () {
-        checkPhone();
-    });
-
-    // 密码输入
-    var passReg = [
-        /^.{6,16}$/,
-        /[A-Z]+/,
-        /[a-z]+/,
-        /\d+/,
-        /\W+/
-    ];
-    $('#password').on('keyup', function () {
-        var check = passReg.map(reg => reg.test($('#password').val()));
-        var strength = check.reduce((a, b) => {
-            if (b) a.count++;
-            return a;
-        }, {
-            count: 0
-        });
-
-        var res = $('.pass_info');
-        switch (strength.count) {
-            case 1:
-            case 2:
-                res.html('太弱');
-                passlock = false
-                break;
-            case 3:
-                if (check[0]) res.html('弱');
-                passlock = true;
-                break;
-            case 4:
-                if (check[0]) res.html('中');
-                passlock = true;
-                break;
-            case 5:
-                res.html('强');
-                passlock = true;
-                break;
-        }
-
-    });
-
-    $('#password').on('blur', function () {
-
-        if ($(this).val() !== '') {
-            if ($(this).val().length >= 6 && $(this).val().length <= 12) {
-                $('.pass_info').html('√');
-                passlock = true;
-            } else {
-                $('.pass_info').html('密码由6到12位字符组成');
-                passlock = false;
-            }
-
-        } else {
-            $('.pass_info').html('密码不能为空');
-            passlock = false;
-        }
-    })
-
-    // 密码确认
-    $('#againpass').on('blur', function () {
-        if ($(this).val() !== '') {
-            if ($('#password').val() !== $('#againpass').val()) {
-                $('.againpass_info').html('密码输入错误');
-                confirmlock = false;
-            } else {
-                $('.againpass_info').html('√');
-                confirmlock = true;
-            }
-        } else {
-            $('.againpass_info').html('密码不能为空');
-            confirmlock = false;
-
-        }
-
-    });
-
-    // 随机验证码确认
-    $('#yzm').on('blur', function () {
-        if ($(this).val() !== '') {
-            if ($(this).val() == $('.get_yzm').html()) {
-                $('.yzm_info').html('√');
-                yzmlock = true;
-            } else {
-                $('.yzm_info').html('验证码输入错误');
-                yzmlock = false;
-            }
-        } else {
-            $('.yzm_info').html('验证码不能为空');
-            yzmlock = false;
-        }
-    });
-
-    // 验证手机号
-    function checkPhone() {
-        var phone = $('#phone').val();
-        if (phone !== '') {
-
+        if (this.phone.value !== '') {
+            var phone=this.phone.value;
             if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(phone))) {
-                $('.phone_info').html("手机号码有误，请重填");
-                tellock = false;
+                tool.$('.phone_info').innerHTML = "手机号码有误，请重填";
+                this.tellock = false;
                 return false;
             } else {
-                $('.phone_info').html('√');
-                tellock = true;
+                tool.$('.phone_info').innerHTML = '√';
+                this.tellock = true;
             }
         } else {
-            $('.phone_info').html('手机号不能为空');
-            tellock = false;
+            tool.$('.phone_info').innerHTML = '手机号不能为空';
+            this.tellock = false;
         }
     }
 
+
     // 随机数
-    $.fn.code_Obj = function (o) {
-        var _this = $(this);
+    code_Obj(o) {
+        var _this = this;
         var options = {
             code_l: o.codeLength,//验证码长度
             codeChars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
                 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
                 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
             ],
-            codeColors: ['#f44336', '#009688', '#cddc39', '#03a9f4', '#9c27b0', '#5e4444', '#9ebf9f', '#ffc8c4', '#2b4754', '#b4ced9', '#835f53', '#aa677e'],
             code_Init: function () {
                 var code = "";
                 var codeColor = "";
-                var checkCode = _this.find("#data_code");
                 for (var i = 0; i < this.code_l; i++) {
-                    var charNum = Math.floor(Math.random() * 52);
+                    var charNum = Math.floor(Math.random() * 62);
                     code += this.codeChars[charNum];
                 }
-                for (var i = 0; i < this.codeColors.length; i++) {
-                    var charNum = Math.floor(Math.random() * 12);
-                    codeColor = this.codeColors[charNum];
-                }
-
-                $('.get_yzm').html(code);
-                if (checkCode) {
-                    checkCode.css('color', codeColor);
-                    checkCode.className = "code";
-                    checkCode.text(code);
-                    checkCode.attr('data-value', code);
-                }
+                console.log(code);
+                tool.$('.get_yzm').innerHTML = code;
             }
         };
 
         options.code_Init();//初始化验证码
-        _this.find("#data_code").bind('click', function () {
-            options.code_Init();
-        });
-    };
 
-    $('.get_yzm').on('click', function () {
-        $('#check-code').code_Obj({
-            codeLength: 6
-        });
+    }
 
-    });
 
-    function submit() {
-        if ($('#username').val() === '') {
-            $('.user_info').html('用户名不能为空');
-            uselock = false;
+    verify() {
+        if (tool.$('#username').value === '') {
+            tool.$('.user_info').innerHTML='用户名不能为空';
+            this.uselock = false;
         }
-        if ($('#phone').val() === '') {
-            $('.phone_info').html('手机号不能为空');
-            tellock = false;
+        if (tool.$('#phone').value === '') {
+            tool.$('.phone_info').innerHTML='手机号不能为空';
+            this.tellock = false;
         }
-        if ($('#yzm').val() === '') {
-            $('.yzm_info').html('验证码不能为空');
-            yzmlock = false;
+        if (tool.$('#yzm').value === '') {
+            tool.$('.yzm_info').innerHTML='验证码不能为空';
+            this.yzmlock = false;
         }
-        if ($('#password').val() === '') {
-            $('.pass_info').html('密码不能为空');
-            passlock = false;
+        if (tool.$('#password').value === '') {
+            tool.$('.pass_info').innerHTML='密码不能为空';
+            this.passlock = false;
         }
-        if ($('#againpass').val() === '') {
-            $('.againpass_info').html('密码不能为空');
-            confirmlock = false;
+        if (tool.$('#againpass').value === '') {
+            tool.$('.againpass_info').innerHTML='密码不能为空';
+            this.confirmlock = false;
         }
-        if (!uselock || !tellock || !yzmlock || !passlock || !confirmlock) {//阻止跳转
+        if (!this.uselock || !this.tellock || !this.yzmlock || !this.passlock || !this.confirmlock) {//阻止跳转
             return false;
-        }else{
+        } else {
             return true;
         }
 
     }
 
-    // 信息提交
-    $('#rgt_btn').on('click', function () {
-        var result=submit() ;
-        console.log(result);
-        if(result){
-            console.log(result);
-            $.ajax({
-                type: 'post',
-                url: 'http://localhost/project/yhd/yhd/lib/registry.php',
-                data: {
-                    username: $('#username').val(),
-                    password: $.md5($('#password').val())
-                },
-                success: function (res) {
-                    location.href='http://localhost/project/yhd/yhd/src/html/login.html';
-                }
-            });
-        }
-       
-    });
-})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    // // 信息提交
+
+
+
+}
+new Registry().init();
